@@ -1,5 +1,7 @@
 # ReactProject
 
+安装 $ npm install
+
 1：开发
 执行 $ gulp
 
