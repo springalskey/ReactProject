@@ -1,0 +1,44 @@
+@import "../common/Tool";
+
+#loginPane{
+  width: 16rem;
+  height: 100%;
+  margin: auto;
+  background-color: $color-bg-d7;
+
+  #content{
+    width: 100%;
+    overflow: hidden;
+  }
+  .wrap-login{
+    padding: 2rem 1rem;
+    margin: auto;
+    width: 12rem;
+    height: 12rem;
+    background-color: #FFFFFF;
+    margin-top: 1rem;
+  }
+
+  .wrap-login  button{
+    width: 100%;
+    height: 1.8rem;
+  }
+
+  .loginButton{
+    margin-top: 1rem;
+    font-size: 20px;
+  }
+
+  .registerButton{
+    color: $color-red;
+    font-size: 20px;
+  }
+
+  p{
+    height: 1.9rem;
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.5rem;
+  }
+}
+

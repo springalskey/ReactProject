@@ -1,0 +1,99 @@
+@import "../common/Tool";
+
+#assetsPane{
+  margin: auto;
+  width: 16rem;
+
+  #content{
+    width: 100%;
+  }
+
+  .detail{
+    height: 4rem;
+    padding-top: 2rem;
+    background-image: linear-gradient(#FFFFFF, #EEEEEE);
+  }
+  .detail span{
+    display: inline-block;
+    font-size: 25px;
+  }
+
+  .ul01{
+    border-top: solid 1px $color-bg-d7;
+    border-bottom: solid 1px $color-bg-d7;
+    height:3.6rem;
+    background: #fff;
+  }
+
+  .ul01 li{
+    width: 50%;
+    float: left;
+    text-align: center;
+    color: #666;
+    height:2.5rem;
+    margin-top: 1.1rem;
+  }
+
+  .ul01 span{
+    display: block;
+  }
+
+  .f25{
+    font-size: 25px;
+  }
+
+
+  .ul01 li a{
+    color: #666;
+    border-right:solid 1px $color-bg-d7;
+    display: inline-block;
+    width:100%;
+    height: 1.5rem;
+  }
+
+  .bz{
+    text-indent: 0.87rem;
+    width: 100%;
+    height: 1.3rem;
+    line-height: 1.3rem;
+    background-color: #F3F3F3;
+    border-bottom: 1px solid $color-bg-d7;
+  }
+
+  #gridPane{
+    width: 16rem;
+    background-color: #ffffff;
+
+    .grid-table{
+
+      border: none;
+
+      td{
+        border: none;
+      }
+
+      tr{
+        border-bottom: 1px solid $color-bg-d7;
+      }
+
+      tr>td:first-child{
+        text-indent: .87rem;
+      }
+    }
+  }
+
+  .right{
+    text-align: right;
+    vertical-align: middle;
+
+    img{
+      padding: 0rem .87rem .04rem 5px;
+      vertical-align: middle;
+      width: .3rem;
+      height: .4rem;
+    }
+  }
+
+}
+
+

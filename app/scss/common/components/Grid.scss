@@ -1,0 +1,47 @@
+@import "../Tool";
+
+
+.grid.noData{
+  height: 3rem;
+  line-height: 3rem;
+  text-align: center;
+}
+
+.grid{
+
+  .loading{
+    width: 100%;
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    @include borderBox;
+
+    img{
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+}
+
+
+.grid-table{
+  width: 100%;
+  border: 1px solid #D7D7D7;
+  vertical-align: middle;
+
+  th{
+    text-align: left;
+    border: 1px solid #D7D7D7;
+    height: 2rem;
+  }
+
+  td{
+    border: 1px solid #D7D7D7;
+    height: 2rem;
+  }
+
+  .noData{
+
+  }
+}

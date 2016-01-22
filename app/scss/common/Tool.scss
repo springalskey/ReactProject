@@ -1,0 +1,28 @@
+$font-family: Microsoft YaHei;
+$color-red: #EA3E4F;  //红色
+$color-bg-d7: #D7D7D7;  //灰色背景
+$color-button-disabled: #999999; //disabled按钮
+$color-font-gray: gray;  //灰色字体
+$color-font-black: #000000; //黑色字体
+
+@mixin userSelectNone{
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+@mixin borderBox{
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+@mixin opacity($opacity:50) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}

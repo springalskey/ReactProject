@@ -1,0 +1,56 @@
+@import "../Tool";
+#Alert{
+  width: 100%;
+  height: 100%;
+  background:rgba(120,120,120,0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+
+  .dialog{
+    width: 12rem;
+    height: 5rem;
+    border: 1px solid #dddddd;
+    background-color: #ffffff;
+    border-radius: .5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    text-align: center;
+  }
+
+  .message{
+    width: 100%;
+    height: 2.8rem;
+    line-height: 2.8rem;
+  }
+
+  .confirmButton{
+    width: 5.4rem;
+    height: 1.6rem;
+    line-height: 1.6rem;
+    background-color: #dddddd;
+    border: 1px solid #dddddd;
+    text-align: center;
+    border-radius: .5rem;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+
+  }
+
+  .confirmButton:active{
+    background-color: #D1D1D1;
+  }
+}
+
+
+#Alert.animated {
+  -webkit-animation-duration: .6s;
+  animation-duration: .6s;
+}

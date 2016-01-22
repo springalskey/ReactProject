@@ -1,0 +1,103 @@
+@import "../common/Tool";
+#purchasePane{
+  width: 16rem;
+  height: 24rem;
+  margin: auto;
+  overflow: hidden;
+
+  .wrap-header{
+    width: 100%;
+    height: 14.6rem;
+    background-color: #F8F8F8;
+  }
+
+  .time{
+    text-align: center;
+    margin-top: 0.4rem;
+  }
+
+  .wrap-header label{
+    font-size: 20px;
+    margin-right: 0.2rem;
+  }
+
+  .wrap-footer{
+    width: 100%;
+  }
+
+  #productName{
+    width: 100%;
+    height: 2.65rem;
+    line-height: 2.65rem;
+    text-align: center;
+    color: $color-red;
+    font-size: 22px;
+  }
+
+  .outProgress{
+    width: 8rem;
+    height: 8rem;
+    border-radius: 100%;
+    border: 3px solid #e8e8e8;
+    margin: auto;
+  }
+
+  .progress{
+    width: 7.5rem;
+    height: 7.5rem;
+    margin: 0.25rem 0.25rem;
+  }
+
+  .icon-alarm{
+    width: 22px;
+    height: 22px;
+    margin-right: 0.2rem;
+    margin-top: 2px;
+    vertical-align: middle;
+    margin-bottom: 10px;
+  }
+
+  .purchaseInfo{
+    height: 4rem;
+    width: 100%;
+  }
+
+  .purchaseInfo li{
+    width: 33%;
+    float: left;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+  }
+
+  .purchaseInfo label{
+    color: $color-red;
+    font-size: 16px;
+  }
+
+
+  #purchaseButton{
+    margin-left: 1rem;
+    width: 14rem;
+    height: 1.8rem;
+    border-radius: 1rem;
+  }
+
+  .tips{
+    font-size: 12px;
+    padding-top: 0.5rem;
+    text-align: center;
+  }
+
+  .iconSafe{
+    width: 22px;
+    height: 22px;
+    vertical-align: middle;
+    padding-right: 5px;
+  }
+
+  .tips-text{
+    vertical-align: middle;
+  }
+}
+
