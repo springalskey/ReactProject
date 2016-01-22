@@ -13,7 +13,7 @@ gulp.task("webpack-dev-server", function(callback) {
     myConfig.debug = true;
 
     // Start a webpack-dev-server
-    new WebpackDevServer(webpack(myConfig)).listen(8080, "localhost", function(err) {
+    new WebpackDevServer(webpack(myConfig)).listen(8080, "0.0.0.0", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         else gutil.log("[webpack-dev-server]", "http://localhost:8080/build/index.html");
     });
