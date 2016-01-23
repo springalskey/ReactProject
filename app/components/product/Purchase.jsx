@@ -39,10 +39,7 @@ export default class Purchase extends React.Component {
             url: "./purchase.json",
             dataType:"json",
             type:"get",
-            success: function(data){
-                console.log(data);
-                this.setState(data);
-            }.bind(this)
+            success: (data) => { this.setState(data) }
         });
     }
 

@@ -22,9 +22,7 @@ export default class ProductList extends React.Component {
             url: "./productList.json",
             dataType:"json",
             type:"get",
-            success: function(data){
-                this.setState({data: data});
-            }.bind(this)
+            success: (data)=> { this.setState({data: data}) }
         });
     }
 
@@ -34,9 +32,7 @@ export default class ProductList extends React.Component {
             <div id="content">
                 <div id="gridPane">
                 {
-                    this.state.data.map(function(item){
-                        return <ProductListItem data={item} />
-                    })
+                    this.state.data.map((item,key) => <ProductListItem data={item} key={key}/>)
                     }
                 </div>
             </div>

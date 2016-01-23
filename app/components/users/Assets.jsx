@@ -15,8 +15,7 @@ export default class Assets extends React.Component {
         var layout = [
             {filed:"productName",name:"产品名称",style:{height:"2.5rem",width:"8rem"}},
             {filed:"yesterProfit",name:"昨日收益",formatter: (value)=>{
-                var v = <div className="right"><label>昨日收益</label><label className='red'>{value}</label><label>元</label><img src={arrow}/></div>;
-                return v;
+                return <div className="right"><label>昨日收益</label><label className='red'>{value}</label><label>元</label><img src={arrow}/></div>;
             }}
         ];
 
