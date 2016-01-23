@@ -3,6 +3,8 @@
 #assetsPane{
   margin: auto;
   width: 16rem;
+  background-color: #f3f3f3;
+  min-height: 100%;
 
   #content{
     width: 100%;
@@ -62,9 +64,11 @@
 
   #gridPane{
     width: 16rem;
-    background-color: #ffffff;
+    background-color: #f3f3f3;
 
     .grid-table{
+
+      background-color: #ffffff;
 
       border: none;
 

@@ -1,5 +1,7 @@
 # ReactProject
 
+该项目是移动端项目
+
 安装 $ npm install
 
 1：开发
@@ -16,10 +18,10 @@
 
     2.App.jsx是路由中的写法
 
-    3.scss
+    3.css
         1) reset.scss在App.jsx中引入且仅此一次。
         2) common.scss在App.jsx中引入且仅此一次。
-        3) Tool.scss在每一个component中都可以作为“工具集公共项”来引入,不引入不会添加到css文件中，是以变量形式存在
+        3) Tool.scss在每一个component中都可以作为“工具集公共项”来引入,不会添加到css文件中，是以变量的形式存在
 
     4.js和jsx
         1) 通用的js放在app/components/common/js目录下
@@ -30,5 +32,7 @@
 		
 	6.dist目录
 		是最终gulp build的结果
+		若使用webstorm可直接选择dist/index.html在浏览器里运行，不需要安装环境。
+
 	
 	

@@ -34,7 +34,7 @@ export default class Assets extends React.Component {
                 </ul>
                 <div className="bz c666">已到期赎回产品不在此处展示。</div>
                 <div id="gridPane">
-                    <Grid store={store} layout={layout} thead={false}/>
+                    <Grid store={store} layout={layout} showThead={false}/>
                 </div>
             </div>
         </div>

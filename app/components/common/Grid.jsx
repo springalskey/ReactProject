@@ -9,11 +9,20 @@ export default class Grid extends React.Component {
     constructor(props){
         super(props);
         this.store = props.store;
-        this.thead = props.thead || false;
+        this.showThead = props.showThead || false;  //是否显示table thead，默认不显示
         this.layout = props.layout;
-        this.data = this.store.getData();
         this.OuterGridItem = props.OuterGridItem;
-        this.state = {request: false};
+        this._ajaxLoaded = false; //false代表未执行ajax请求数据
+        this.state = { data: this.store.getDataStructure() };//初次加载，渲染为空
+        this.initData();
+    }
+
+    initData(){
+        this.store.deferred.done( (d) => {
+            this.store.setData(d);
+            this._ajaxLoaded = true;
+            this.setState({data: this.store.getData()});
+        });
     }
 
     render() {
@@ -27,18 +36,19 @@ export default class Grid extends React.Component {
             //外部传入组件
             if(OuterGridItem){
                 return <div className="grid">
-                {
-                    this.data.items.map( (itemData,key) => <OuterGridItem key={key} itemData={itemData} ></OuterGridItem>)
+                    {
+                        this.state.data.items.map( (itemData,key) => <OuterGridItem key={key} itemData={itemData} ></OuterGridItem>)
                     }
                     <div className="loading"><img src={loading_gif}/></div>
                 </div>
             }
 
             //使用默认组件
-            return <DefaultTableGrid data={this.data} layout={this.layout} thead={this.thead}/>
+            return <DefaultTableGrid data={this.state.data} layout={this.layout} showThead={this.showThead}/>
         }
         else{
-            return <div className="grid noData">暂无数据</div>
+            if(this._ajaxLoaded) return <div className="grid noData">暂无数据</div>;
+            else return <div></div>
         }
 
     }
@@ -48,9 +58,10 @@ export default class Grid extends React.Component {
             var scrollHeight = document.documentElement.scrollHeight;
             var clientHeight= document.documentElement.clientHeight;
             var scrollTop= document.body.scrollTop+clientHeight;
-            var  delayTime = 1500; //毫秒
+            var delayTime = 1500; //毫秒
 
             if(scrollTop==scrollHeight) {
+                //滚动到底部移除scroll事件
                 window.removeEventListener("scroll", scroll, false);
                 //显示加载数据gif图片
                 var loading = document.querySelector(".loading");
@@ -58,23 +69,27 @@ export default class Grid extends React.Component {
                 //滚动条滚到底部
                 document.body.scrollTop = document.body.scrollTop+loading.clientHeight;
 
-                if(this.data.totalPage == 1 && this.data.pageNo >= this.data.totalPage){
+                if(this.state.data.totalPage == 1 && this.state.data.pageNo >= this.state.data.totalPage){
                     window.setTimeout(()=>{
                         loading.innerHTML = "已加载全部！";
                     },delayTime);
                     return;
                 }
-                this.store.request();
-                //2秒后更新component
-                window.setTimeout(()=>{
-                    this.setState({request: true});
-                    loading.style.display = "none";
-                    window.addEventListener('scroll',scroll, false);
-                },delayTime);
+
+                this.store.request().done( (d) => {
+                    this.store.setData(d);
+                    //2秒后更新component
+                    window.setTimeout(()=>{
+                        this.setState({data: this.store.getData()});
+                        loading.style.display = "none";
+                        //数据加载完毕继续监听scroll事件
+                        window.addEventListener('scroll',scroll, false);
+                    },delayTime);
+
+                });
             }
         };
         window.addEventListener('scroll',scroll, false);
-
     }
 }
 
@@ -95,14 +110,14 @@ export class DefaultTableGrid extends React.Component {
         super(props);
         this.layout = props.layout;
         this.data = props.data;
-        this.thead = props.thead;
+        this.showThead = props.showThead;
     }
 
     render() {
         var  items = this.data.items;
         return <div className="grid">
                 <table className="grid-table">
-                    <thead style={{display: this.thead?"block":"none"}} >
+                    <thead style={{display: this.showThead?"block":"none"}} >
                         <tr>
                         { this.layout.map((item,key) => <th key={key}>{item.name}</th>) }
                         </tr>
@@ -131,15 +146,16 @@ export class DefaultTableGrid extends React.Component {
     }
 }
 
-
 Grid.propTypes = {
     store: React.PropTypes.object.isRequired,
     //layout与OuterGridItem二选一
+    OuterGridItem: React.PropTypes.func,
     layout: React.PropTypes.array,
-    OuterGridItem: React.PropTypes.func
+    showThead: React.PropTypes.bool
 };
 
 DefaultTableGrid.propTypes = {
     data: React.PropTypes.object.isRequired,
-    layout: React.PropTypes.array.isRequired
+    layout: React.PropTypes.array.isRequired,
+    showThead: React.PropTypes.bool
 };
