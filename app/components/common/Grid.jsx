@@ -69,7 +69,7 @@ export default class Grid extends React.Component {
                 //滚动条滚到底部
                 document.body.scrollTop = scrollTop+loading.clientHeight;
 
-                if(this.state.data.totalPage == 1 && this.state.data.pageNo >= this.state.data.totalPage){
+                if(this.state.data.totalPage <= 1 && this.state.data.pageNo >= this.state.data.totalPage){
                     var t = window.setTimeout(()=>{
                         loading.innerHTML = "已加载全部！";
                         clearTimeout(t);
