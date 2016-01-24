@@ -6,6 +6,7 @@
 
 1：开发
 执行 $ gulp
+访问路径 http://localhost:8080/build/index.html
 
 
 2：生产

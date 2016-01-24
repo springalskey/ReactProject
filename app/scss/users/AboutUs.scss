@@ -1,0 +1,39 @@
+#aboutUsPane{
+  height: 100%;
+  margin: auto;
+  width: 16rem;
+
+  .icon{
+    height: 3rem;
+    width: 3rem;
+  }
+
+  .content{
+    width: 11rem;
+    height: 3rem;
+    background-color: #F3F3F3;
+    -webkit-border-top-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-top-right-radius: 10px;
+    -moz-border-bottom-right-radius: 10px;
+    padding-left: 0.8rem;
+    display:table;
+  }
+  .content span{
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  ul{
+    padding:1rem;
+    width: 14rem;
+  }
+
+  li{
+    margin-bottom:0.6rem;
+    height: 3rem;
+    width: 100%;
+  }
+}

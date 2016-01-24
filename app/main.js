@@ -9,6 +9,7 @@ import Purchase from "./components/product/Purchase.jsx"
 import Assets from "./components/users/Assets.jsx"
 import Invite from "./components/users/Invite.jsx"
 import TransactionRecord from "./components/users/TransactionRecord.jsx"
+import AboutUs from "./components/users/AboutUs.jsx"
 
 
 //var DefaultRoute = Router.DefaultRoute;
@@ -25,6 +26,7 @@ let routes = (
             <Route path="/assets"       component={Assets}/>
             <Route path="/invite"       component={Invite}/>
             <Route path="/transactionRecord"       component={TransactionRecord}/>
+            <Route path="/aboutUs"       component={AboutUs}/>
         </Route>
     </Router>
 );
