@@ -31,13 +31,13 @@ export default class Invite extends React.Component {
     }
 
     shareHandler(){
-        this.refs.overlay.getDOMNode().style.display="block";
-        this.refs.share.getDOMNode().style.display="block";
+        this.refs.overlay.style.display="block";
+        this.refs.share.style.display="block";
     }
 
     hideHandler(){
-        this.refs.overlay.getDOMNode().style.display="none";
-        this.refs.share.getDOMNode().style.display="none";
+        this.refs.overlay.style.display="none";
+        this.refs.share.style.display="none";
     }
 }
 
@@ -50,7 +50,7 @@ class QRcode extends React.Component {
     componentDidMount(){
         var bodyWidth = $("#app").width();
         var v = bodyWidth/16;
-        $(this.refs.code.getDOMNode()).qrcode({
+        $(this.refs.code).qrcode({
             render: "canvas", //table、canvas方式
             width : 8*v,//设置宽高
             height : 8*v,
