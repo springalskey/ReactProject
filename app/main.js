@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDom from 'react-dom'
 import { Router, Route,IndexRoute } from 'react-router'
 import Index from './components/index/Index.jsx';
 import App from './components/App.jsx';
@@ -10,6 +11,7 @@ import Assets from "./components/users/Assets.jsx"
 import Invite from "./components/users/Invite.jsx"
 import TransactionRecord from "./components/users/TransactionRecord.jsx"
 import AboutUs from "./components/users/AboutUs.jsx"
+import PersonalSetting from "./components/users/PersonalSetting.jsx"
 
 
 //var DefaultRoute = Router.DefaultRoute;
@@ -25,8 +27,9 @@ let routes = (
             <Route path="/purchase"     component={Purchase}/>
             <Route path="/assets"       component={Assets}/>
             <Route path="/invite"       component={Invite}/>
-            <Route path="/transactionRecord"       component={TransactionRecord}/>
-            <Route path="/aboutUs"       component={AboutUs}/>
+            <Route path="/transactionRecord" component={TransactionRecord}/>
+            <Route path="/aboutUs"           component={AboutUs}/>
+            <Route path="/personalSetting"   component={PersonalSetting}/>
         </Route>
     </Router>
 );
@@ -34,6 +37,5 @@ let routes = (
 main();
 
 function main() {
-
-    React.render(routes, document.getElementById('app'));
+    ReactDom.render(routes, document.getElementById('app'));
 }

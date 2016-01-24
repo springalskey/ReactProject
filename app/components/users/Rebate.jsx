@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-export default class About extends React.Component {
+export default class Rebate extends React.Component {
     render() {
 
 

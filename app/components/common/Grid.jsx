@@ -48,48 +48,56 @@ export default class Grid extends React.Component {
         }
         else{
             if(this._ajaxLoaded) return <div className="grid noData">暂无数据</div>;
-            else return <div></div>
+            else return <div className="grid"></div>
         }
 
     }
 
     componentDidMount(){
-        var scroll = ()=>{
+        this._scrollHandler = ()=>{
             var scrollHeight = document.documentElement.scrollHeight;
             var clientHeight= document.documentElement.clientHeight;
-            var scrollTop= document.body.scrollTop+clientHeight;
+            var scrollTop = document.body.scrollTop;
+            var scrollHeight2= document.body.scrollTop+clientHeight;
             var delayTime = 1500; //毫秒
-
-            if(scrollTop==scrollHeight) {
+            if(scrollTop > 0 && scrollHeight2==scrollHeight) {
                 //滚动到底部移除scroll事件
-                window.removeEventListener("scroll", scroll, false);
+                window.removeEventListener("scroll", this._scrollHandler, false);
                 //显示加载数据gif图片
                 var loading = document.querySelector(".loading");
                 loading.style.display = "block";
                 //滚动条滚到底部
-                document.body.scrollTop = document.body.scrollTop+loading.clientHeight;
+                document.body.scrollTop = scrollTop+loading.clientHeight;
 
                 if(this.state.data.totalPage == 1 && this.state.data.pageNo >= this.state.data.totalPage){
-                    window.setTimeout(()=>{
+                    var t = window.setTimeout(()=>{
                         loading.innerHTML = "已加载全部！";
+                        clearTimeout(t);
                     },delayTime);
                     return;
                 }
 
-                this.store.request().done( (d) => {
+                this.store.request({
+                    pageNo:this.state.data.pageNo+1,
+                    pageSize:this.state.data.pageSize
+                }).done( (d) => {
                     this.store.setData(d);
                     //2秒后更新component
-                    window.setTimeout(()=>{
-                        this.setState({data: this.store.getData()});
+                    var t= window.setTimeout(()=>{
                         loading.style.display = "none";
                         //数据加载完毕继续监听scroll事件
-                        window.addEventListener('scroll',scroll, false);
+                        this.setState({data: this.store.getData()});
+                        window.addEventListener('scroll',this._scrollHandler, false);
+                        clearTimeout(t);
                     },delayTime);
-
                 });
             }
         };
-        window.addEventListener('scroll',scroll, false);
+        window.addEventListener('scroll',this._scrollHandler, false);
+    }
+
+    componentWillUnmount(){
+        window.removeEventListener("scroll", this._scrollHandler, false);
     }
 }
 

@@ -12,7 +12,7 @@ export default class Store {
     }
 
     _ajax(param){
-        param = param || {};
+        param = param || {pageNo: 0,pageSize: this.getDataStructure().pageSize};
         return $.ajax({
             url: this._url,
             data:{pageNo:param.pageNo,pageSize:param.pageSize},
@@ -43,7 +43,7 @@ export default class Store {
     getDataStructure(){
         return {
             pageNo: 0,
-            pageSize: 0,
+            pageSize: 10,
             totalPage:0,
             totalNum: 0,
             items: []
