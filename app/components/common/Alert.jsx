@@ -14,11 +14,9 @@ export default class Alert extends React.Component {
     }
 
     confirmHandler(){
-        var AlertDom = React.findDOMNode(this.refs.AlertDom);
+        var AlertDom = this.refs.AlertDom;
         AlertDom.className = "animated fadeOut";
-        AlertDom.addEventListener("webkitAnimationEnd",()=>{ this.props.onClose(); },false);
-        AlertDom.addEventListener("transitionend",()=>{ this.props.onClose(); },false);
-
+        AlertDom.addEventListener("animationend",()=>{ this.props.onClose(); },false);
     }
 }
 

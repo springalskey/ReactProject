@@ -13,6 +13,9 @@
 执行 $ gulp build
 
 
+3：在线预览：https://springalskey.github.io/ReactProject/dist/index.html
+
+
 关于项目：
 
     1.main.js配置路由

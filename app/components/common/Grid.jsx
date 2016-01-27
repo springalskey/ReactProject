@@ -48,7 +48,7 @@ export default class Grid extends React.Component {
         }
         else{
             if(this._ajaxLoaded) return <div className="grid noData">暂无数据</div>;
-            else return <div className="grid"></div>
+            else return <div className="grid"><div className="loading"><img src={loading_gif} /></div></div>
         }
 
     }

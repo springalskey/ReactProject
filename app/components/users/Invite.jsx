@@ -6,15 +6,21 @@ import friends from "../../images/share-friends.png"
 require("../../scss/users/Invite.scss");
 
 export default class Invite extends React.Component {
-    render() {
 
+    constructor(){
+        super();
+        var bodyWidth = document.getElementById("app").clientWidth;
+        this._size = (bodyWidth/16).toFixed(0)*8;
+    }
+
+    render(){
         return <div id="invitePane">
 
                 <Header />
 
                 <div id="content">
                     <p className="title">扫一扫 邀请好友来注册</p>
-                    <QRcode />
+                    <QRcode size={this._size}/>
                     <p className="mycode">我的邀请码<label id="inviteCode">123456</label></p>
                     <div className="white">
                         <button className="button-red" id="getPointsButton" onClick={this.shareHandler.bind(this)}>邀请好友</button>
@@ -43,19 +49,25 @@ export default class Invite extends React.Component {
 
 import QRCode from "../common/js/qrcode.js"
 class QRcode extends React.Component {
+
+    constructor(props){
+        super();
+        this._size = props.size;
+    }
+
     render() {
         return <div ref="code" id="QRcode"></div>
     }
 
     componentDidMount(){
-        var bodyWidth = $("#app").width();
-        var v = bodyWidth/16;
         $(this.refs.code).qrcode({
             render: "canvas", //table、canvas方式
-            width : 8*v,//设置宽高
-            height : 8*v,
+            width : this._size,//设置宽高
+            height : this._size,
             text: "http://localhost:8080/build/index.html?inviteCode=123456"
         });
+        $(this.refs.code).css("width",this._size);
+        $(this.refs.code).css("height",this._size);
     }
 
 }

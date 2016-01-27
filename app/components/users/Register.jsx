@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router'
 import Header from "../common/Header.jsx"
 import InputBox from "../common/InputBox.jsx"
-import Alert from "../common/Alert.jsx"
 import AlertMixin from "../common/mixin/AlertMixin.jsx"
 import history from 'history/lib/createHashHistory'
 

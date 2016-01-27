@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router'
-import Header from "../common/Header.jsx"
-import InputBox from "../common/InputBox.jsx"
-import Alert from "../common/Alert.jsx"
-import AlertMixin from "../common/mixin/AlertMixin.jsx"
-import history from 'history/lib/createHashHistory'
+import ReactDom from 'react-dom';
+import { Link } from 'react-router';
+import Header from "../common/Header.jsx";
+import InputBox from "../common/InputBox.jsx";
+import AlertMixin from "../common/mixin/AlertMixin.jsx";
+import history from 'history/lib/createHashHistory';
 
 import icon_phone from "../../images/icon-phone.png";
 import icon_key from "../../images/icon-key.png";
@@ -46,8 +46,12 @@ class Login extends React.Component {
     }
 
     loginHandler(){
-        var cellphoneInput = React.findDOMNode(document.getElementById("cellphoneInput"));
-        var passwordInput = React.findDOMNode(document.getElementById("passwordInput"));
+        var cellphoneInput = ReactDom.findDOMNode(document.getElementById("cellphoneInput"));
+        var passwordInput = ReactDom.findDOMNode(document.getElementById("passwordInput"));
+
+        cellphoneInput.placeholder = "请输入手机号码";
+        passwordInput.placeholder = "请输入密码";
+
         var cellphone = cellphoneInput.value;
         var password  = passwordInput.value;
         if(!cellphone){

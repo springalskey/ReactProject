@@ -9,9 +9,10 @@
 
 .grid{
 
+  width: 16rem;
+
   .loading{
     width: 100%;
-    display: none;
     text-align: center;
     padding: 1rem;
     @include borderBox;

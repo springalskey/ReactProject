@@ -2,13 +2,12 @@
 
 #loginPane{
   width: 16rem;
-  height: 100%;
+  min-height: 100%;
   margin: auto;
   background-color: $color-bg-d7;
 
   #content{
-    width: 100%;
-    overflow: hidden;
+    width: 16rem;
   }
   .wrap-login{
     padding: 2rem 1rem;

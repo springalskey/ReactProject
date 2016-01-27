@@ -1,11 +1,11 @@
 .clearfix:after {content: "."; display: block; height: 0; clear: both; visibility: hidden;}
 .clearfix {*zoom:1}
 ul, ol,li{ list-style:none; }
-img,a{border: 0;outline: none;}
+img{border: 0;outline: none;}
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; }
 h1, h2, h3, h4, h5, h6{ font-size:100%; }
 table { border-collapse:collapse; border-spacing:0; }
-a{ text-decoration: none;color:#333}
+a{ text-decoration: none;color:#333;outline: none;}
 *{ -webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color: transparent;}
 html{
   margin: 0;

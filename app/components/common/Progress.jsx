@@ -140,7 +140,7 @@ export default class Progress extends React.Component {
         } else {
             t = this.props.data.size;
         }
-        var size = (t*v)+"rem";
+        var size = (t*v);
         return <div className="outProgress">
             <canvas width={size} height={size} className="progress" ref="progress"></canvas>
         </div>

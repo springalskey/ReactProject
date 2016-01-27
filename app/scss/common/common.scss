@@ -1,9 +1,8 @@
 @import "Tool";
 
 #app,.App{height: 100%;}
+.App>div{height: 100%;position: relative;}
 
-/**font-size 12-20px**/
-.f12{font-size:12px}.f13{font-size:13px}.f14{font-size:14px}.f15{font-size:15px}.f16{font-size:16px}.f17{font-size:17px}.f18{font-size:18px}.f19{font-size:19px}.f20{font-size:20px}
 
 .red{ color: $color-red;}
 .hidden{display: none;}
@@ -71,3 +70,20 @@
 
 
 
+.pageTransition-enter {
+  opacity: 0.01;
+}
+
+.pageTransition-enter.pageTransition-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.pageTransition-leave {
+  opacity: 1;
+}
+
+.pageTransition-leave.pageTransition-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}

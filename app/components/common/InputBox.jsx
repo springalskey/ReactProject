@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link} from 'react-router'
 require("../../scss/common/components/InputBox.scss");
 
 export default class InputBox extends React.Component {
@@ -10,13 +9,11 @@ export default class InputBox extends React.Component {
                         <img className="pwdIcon" src={this.props.icon} />
                     </li>
                     <li className="fl">
-                        <input
-                            maxLength={this.props.inputMaxLength}
+                        <input maxLength={this.props.inputMaxLength}
                             type={this.props.inputType}
                             ref={this.props.inputRef}
                             id={this.props.inputRef}
-                            placeholder={this.props.inputPlaceholder}
-                        />
+                            placeholder={this.props.inputPlaceholder} />
                     </li>
                 </ul>
     }
