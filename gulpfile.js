@@ -5,7 +5,9 @@ var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config");
 var gulpWebpack = require('gulp-webpack');
-gulp.task("default", ["webpack-dev-server"]);
+
+
+gulp.task("default", ["webpack-dev-server",'build']);
 
 gulp.task("webpack-dev-server", function(callback) {
     var myConfig = Object.create(webpackConfig);
