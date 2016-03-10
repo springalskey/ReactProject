@@ -13,7 +13,7 @@
 执行 $ gulp build
 
 
-3：在线预览：https://springalskey.github.io/ReactProject/dist/index.html
+3：在线预览：http://springalskey.github.io/ReactProject/dist/index.html
 
 
 关于项目：
