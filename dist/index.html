@@ -1,18 +1,74 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>react project</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta http-equiv="pragma" content="no-cache">
-<link href="all.7790c950.css" rel="stylesheet"></head>
+    <meta charset="UTF-8">
+    <title>react-mishop</title>
+    <link rel="stylesheet" href="http://marvelapp.github.io/devices.css/assets/devices.min.css">
+    <script src="http://7o5118.com1.z0.glb.clouddn.com/qrcode.min.js"></script>
+    <style>
+        ::-webkit-scrollbar{
+            background-color: #006169;
+            height: 0px;
+            width: 0px;
+        }
+    </style>
+    <script type="text/javascript">
+        var link="https://springalskey.github.io/ReactProject/dist/test.html";
+        var ua = navigator.userAgent;
+        var data = {
+            ios: /iphone|ipad|ipod/i.test(ua),
+            android: /android/i.test(ua)
+        };
+        if(data.ios||data.android){
+            location.href=link;
+        }
+        document.addEventListener('DOMContentLoaded', function(){
+            document.getElementById("iframe1").src=link;
+            new QRCode("qrcode", {
+                text: link,
+                width: 200,
+                height: 200,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        }, false);
+    </script>
+</head>
 <body>
-<div id="app"></div>
-<script src="http://cdn.bootcss.com/es5-shim/4.1.5/es5-shim.js"></script>
-<script src="http://cdn.bootcss.com/es5-shim/4.1.5/es5-sham.js"></script>
-<script src="jquery-2.1.4.min.js"></script>
-<script src="commons.7790c950.js"></script><script src="app.7790c950.js"></script></body>
+<!-- src="http://7o5118.com1.z0.glb.clouddn.com/qrcode.png" -->
+<div id='qrcode' style="
+        position: fixed;
+        width: 200px;
+        height: 200px;
+        right: 50px;
+        top: 100px;
+"></div>
+
+<div class="marvel-device iphone6 gold" style="-webkit-transform: scale(0.75,0.75);transform: scale(0.75,0.75);display: block;margin:-100px auto 0 auto">
+    <div class="top-bar"></div>
+    <div class="sleep"></div>
+    <div class="volume"></div>
+    <div class="camera"></div>
+    <div class="sensor"></div>
+    <div class="speaker"></div>
+    <div class="screen">
+        <!-- Content goes here -->
+    </div>
+    <div class="home"></div>
+    <div class="bottom-bar"></div>
+    <script type="text/javascript">
+
+
+    </script>
+    <iframe id='iframe1' style="position: absolute;z-index: 110;
+    width: 375px;
+    border: 0;
+    top: 104px;
+    height: 666px;
+"></iframe>
+
+</div>
+</body>
 </html>
