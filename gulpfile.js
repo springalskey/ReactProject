@@ -30,7 +30,10 @@ gulp.task("build",function(){
         .pipe(gulpWebpack(require('./webpack.production.config.js') ))
         .pipe(gulp.dest('dist/'));
 
-    gulp.src(["build/*","!build/*.html"])
+    gulp.src(["build/*","!build/*.html","!build/qrcode.png"])
+        .pipe(gulp.dest('dist/'));
+
+    gulp.src(["build/test.html"])
         .pipe(gulp.dest('dist/'));
 });
 
