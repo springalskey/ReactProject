@@ -4,6 +4,7 @@ import Header from "../common/Header.jsx"
 import InputBox from "../common/InputBox.jsx"
 import AlertMixin from "../common/mixin/AlertMixin.jsx"
 import history from 'history/lib/createHashHistory'
+import assign from 'object-assign';
 
 import icon_phone from "../../images/icon-phone.png";
 import icon_key from "../../images/icon-key.png";
@@ -14,6 +15,11 @@ require("../../scss/common/Button.scss");
 require("../../scss/users/Register.scss");
 
 class Register extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.data = {};
+    }
 
     render() {
 
@@ -26,10 +32,11 @@ class Register extends React.Component {
 
                     <InputBox
                         icon={icon_phone}
-                        inputType="tel"
-                        inputRef="cellphoneInput"
-                        inputPlaceholder="请输入手机号码"
-                        inputMaxLength="11"
+                        type="tel"
+                        placeholder="请输入手机号码"
+                        maxLength="11"
+                        name = "mobile"
+                        onChange = {this.changeHandler.bind(this)}
                     />
 
                     <div className="inputBox mthalf">
@@ -38,7 +45,8 @@ class Register extends React.Component {
                                 <img src={icon_verificationCode}/>
                             </li>
                             <li className="fl">
-                                <input className="confirm fl" maxLength="6" name="validateCode" ref="validateCodeInput" placeholder="请填写验证码"/>
+                                <input className="confirm fl" maxLength="6" name="validateCode" type="tel"
+                                    ref="validateCodeInput" placeholder="请填写验证码" onChange={this.validateCodeHandler.bind(this)}/>
                                 <button className="button-red" ref="getValidateCodeButton" id="getValidateCodeButton">获取验证码</button>
                             </li>
                         </ul>
@@ -47,28 +55,31 @@ class Register extends React.Component {
                     <InputBox
                         style={{marginTop: ".5rem"}}
                         icon={icon_key}
-                        inputType="password"
-                        inputRef="passwordInput"
-                        inputPlaceholder="请输入登录密码"
-                        inputMaxLength="20"
+                        type="password"
+                        placeholder="请输入登录密码"
+                        maxLength="20"
+                        name = "password"
+                        onChange = {this.changeHandler.bind(this)}
                     />
 
                     <InputBox
                         style={{marginTop: ".5rem"}}
                         icon={icon_key}
-                        inputType="password"
-                        inputRef="rePasswordInput"
-                        inputPlaceholder="请再次输入登录密码"
-                        inputMaxLength="20"
+                        type="password"
+                        placeholder="请再次输入登录密码"
+                        maxLength="20"
+                        name = "rePassword"
+                        onChange = {this.changeHandler.bind(this)}
                     />
 
                     <InputBox
                         style={{marginTop: "1rem"}}
                         icon={icon_inviteCode}
-                        inputType="text"
-                        inputRef="inviteCodeInput"
-                        inputPlaceholder="请填写好友的邀请码（非必填）"
-                        inputMaxLength="6"
+                        type="text"
+                        placeholder="请填写好友的邀请码（非必填）"
+                        maxLength="6"
+                        name = "inviteCode"
+                        onChange = {this.changeHandler.bind(this)}
                     />
 
                     <button className="button-red registerButton" id="registerButton" onClick={this.registerHandler.bind(this)}>注册</button>
@@ -78,41 +89,36 @@ class Register extends React.Component {
         </div>
     }
 
+    changeHandler(data){
+        assign(this.data,data);
+    }
+
+    validateCodeHandler(e){
+        assign(this.data,{validateCode:e.target.value});
+    }
 
     registerHandler(){
-        var cellphoneInput = React.findDOMNode(document.getElementById("cellphoneInput"));
-        var validateCodeInput = React.findDOMNode(this.refs.validateCodeInput);
-        var passwordInput = React.findDOMNode(document.getElementById("passwordInput"));
-        var rePasswordInput = React.findDOMNode(document.getElementById("rePasswordInput"));
-        var inviteCodeInput = React.findDOMNode(document.getElementById("inviteCodeInput"));
-
-        var cellphone = cellphoneInput.value;
-        var password  = passwordInput.value;
-        var validateCode= validateCodeInput.value;
-        var rePassword = rePasswordInput.value;
-        var inviteCode = inviteCodeInput.value;
-
-        if(!cellphone){
+        if(!this.data.mobile){
             this.props.onShow("请输入手机号码！");
             return;
         }
-        if(!validateCode){
+        if(!this.data.validateCode){
             this.props.onShow("请输入手机验证码！");
             return;
         }
-        if(!password){
+        if(!this.data.password){
             this.props.onShow("请输入密码！");
             return;
         }
-        if(!rePassword){
+        if(!this.data.rePassword){
             this.props.onShow("请输入确认密码！");
             return;
         }
-        if(password!==rePassword){
+        if(this.data.password!==this.data.rePassword){
             this.props.onShow("两次密码不一致！");
             return;
         }
-        if(!inviteCode){
+        if(!this.data.inviteCode){
             this.props.onShow("请输入邀请码！");
             return;
         }

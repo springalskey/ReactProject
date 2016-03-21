@@ -5,6 +5,7 @@ import Header from "../common/Header.jsx";
 import InputBox from "../common/InputBox.jsx";
 import AlertMixin from "../common/mixin/AlertMixin.jsx";
 import history from 'history/lib/createHashHistory';
+import assign from 'object-assign';
 
 import icon_phone from "../../images/icon-phone.png";
 import icon_key from "../../images/icon-key.png";
@@ -12,7 +13,13 @@ import icon_key from "../../images/icon-key.png";
 require("../../scss/common/Button.scss");
 require("../../scss/users/Login.scss");
 
+
 class Login extends React.Component {
+
+    constructor(props){
+        super(props);
+        this.data = {};
+    }
 
     render() {
         return <div id="loginPane">
@@ -22,19 +29,21 @@ class Login extends React.Component {
 
                     <InputBox
                         icon={icon_phone}
-                        inputType="tel"
-                        inputRef="cellphoneInput"
-                        inputPlaceholder="请输入手机号码"
-                        inputMaxLength="11"
+                        type="tel"
+                        placeholder="请输入手机号码"
+                        maxLength="11"
+                        name = "mobile"
+                        onChange = {this.changeHandler.bind(this)}
                     />
 
                     <InputBox
                         style={{marginTop: "1rem"}}
                         icon={icon_key}
-                        inputType="password"
-                        inputRef="passwordInput"
-                        inputPlaceholder="请输入密码"
-                        inputMaxLength="20"
+                        type="password"
+                        placeholder="请输入密码"
+                        maxLength="20"
+                        name = "password"
+                        onChange = {this.changeHandler.bind(this)}
                     />
 
                     <button className="button-red loginButton" id="loginButton" onClick={this.loginHandler.bind(this)}>登录</button>
@@ -45,27 +54,21 @@ class Login extends React.Component {
         </div>
     }
 
+    changeHandler(data){
+        assign(this.data,data);
+    }
+
     loginHandler(){
-        var cellphoneInput = ReactDom.findDOMNode(document.getElementById("cellphoneInput"));
-        var passwordInput = ReactDom.findDOMNode(document.getElementById("passwordInput"));
-
-        cellphoneInput.placeholder = "请输入手机号码";
-        passwordInput.placeholder = "请输入密码";
-
-        var cellphone = cellphoneInput.value;
-        var password  = passwordInput.value;
-        if(!cellphone){
+        if(!this.data.mobile){
             this.props.onShow("请输入手机号码！");
             return;
         }
-        if(!password){
+        if(!this.data.password){
             this.props.onShow("请输入密码！");
             return;
         }
         //sessionStorage.setItem("cellphone", cellphone);
         //sessionStorage.setItem("password",  password);
-
-        console.log(history());
 
         history().pushState(null,"/index");
     }
