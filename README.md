@@ -17,7 +17,7 @@
 
 
 4：扫描二维码：
-![image](http://springalskey.github.io/ReactProject/build/qrcode.png)
+![image](https://github.com/springalskey/ReactProject/blob/master/build/qrcode.png)
 
 
 关于项目：
