@@ -13,7 +13,11 @@
 执行 $ gulp build
 
 
-3：在线预览：http://springalskey.github.io/ReactProject/dist/index.html
+3：在线预览：http://springalskey.github.io/ReactProject/dist/test.html
+
+
+4：扫描二维码：
+![image](http://springalskey.github.io/ReactProject/build/qrcode.png)
 
 
 关于项目：
